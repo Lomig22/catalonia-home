@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Catalonia Home — Travaux & Rénovation · Empuriabrava · Costa Brava</title>
+<meta name="description" content="Catalonia Home réalise vos travaux de rénovation à Empuriabrava et sur la Costa Brava pendant votre absence. Suivi photos, compte-rendu régulier, résultat livré à votre arrivée. Clients belges & agences immobilières françaises." />
+<meta name="theme-color" content="#1B4F72" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Catalonia Home — Travaux & Rénovation · Empuriabrava" />
+<meta property="og:description" content="Votre villa en Espagne, entre de bonnes mains. Travaux et rénovation à Empuriabrava et sur la Costa Brava, suivi à distance inclus." />
+<meta property="og:locale" content="fr_FR" />
+
+<!-- Favicon (maison) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231B4F72'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle'%3E%F0%9F%8F%A0%3C/text%3E%3C/svg%3E" />
+
+<!-- Google Fonts (seule dépendance externe autorisée) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<style>
+/* ============================================================
+   IMPORT TYPOGRAPHIQUE
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap');
+
+/* ============================================================
+   TOKENS — PALETTE & VARIABLES
+   Villa méditerranéenne / Costa Brava / Confiance à distance
+   ============================================================ */
+:root {
+  /* Palette (6 tokens nommés) */
+  --blanc:   #FAFAF8; /* fond principal — blanc méditerranéen, lumière      */
+  --catalan: #1B4F72; /* accent signature — bleu catalan profond, la mer    */
+  --encre:   #1A2A36; /* texte principal — bleu nuit chaud                  */
+  --sable:   #F0EBE1; /* sections alternées — sable de plage catalan        */
+  --horizon: #7A9BB5; /* texte secondaire — bleu horizon, lumière de mer    */
+  --soleil:  #E8AA3A; /* accent chaud — soleil catalan, touches dorées      */
+
+  /* Typographie */
+  --font-display: 'Raleway', system-ui, sans-serif;
+  --font-corps:   'Source Sans 3', system-ui, sans-serif;
+
+  /* Rythme */
+  --bandeau-h: 36px;
+  --header-h: 70px;
+  --max: 1180px;
+  --radius: 8px;
+
+  /* Signature visuelle : vagues de canaux d'Empuriabrava (SVG tuilé 400×180)
+     6 courbes Bézier sinueuses, espacement irrégulier (24–38px),
+     stroke catalan opacity 0.05, stroke-width 0.8, fill none.            */
+  --waves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='180' viewBox='0 0 400 180'%3E%3Cg fill='none' stroke='%231B4F72' stroke-width='0.8' stroke-opacity='0.05'%3E%3Cpath d='M0 22 C 66 13 134 31 200 22 S 334 13 400 22'/%3E%3Cpath d='M0 52 C 70 61 130 43 200 52 S 330 61 400 52'/%3E%3Cpath d='M0 90 C 60 81 140 99 200 90 S 340 81 400 90'/%3E%3Cpath d='M0 118 C 66 127 134 109 200 118 S 334 127 400 118'/%3E%3Cpath d='M0 146 C 70 137 130 155 200 146 S 330 137 400 146'/%3E%3Cpath d='M0 170 C 66 161 134 179 200 170 S 334 161 400 170'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   RESET LÉGER
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-corps);
+  font-weight: 400;
+  color: var(--encre);
+  background: var(--blanc);
+  line-height: 1.65;
+  padding-top: calc(var(--bandeau-h) + var(--header-h));
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+ul { list-style: none; }
+
+/* Ancres décalées sous bandeau + header fixes */
+section[id] { scroll-margin-top: calc(var(--bandeau-h) + var(--header-h) + 12px); }
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+.wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: 24px; }
+
+.eyebrow {
+  font-family: var(--font-corps);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--catalan);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--encre);
+  line-height: 1.12;
+  font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+  letter-spacing: -0.01em;
+}
+
+.section-pad { padding-block: clamp(64px, 9vw, 112px); }
+
+/* Fond « canaux » pour les sections sable */
+.bg-waves { background-image: var(--waves); background-repeat: repeat; background-size: 400px 180px; }
+
+/* ============================================================
+   0. BANDEAU
+   ============================================================ */
+.bandeau {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--bandeau-h);
+  z-index: 1000;
+  background: var(--catalan);
+  color: var(--blanc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-inline: 16px;
+}
+.bandeau p {
+  font-family: var(--font-corps);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bandeau a { color: var(--blanc); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ============================================================
+   1. HEADER FIXE
+   ============================================================ */
+.header {
+  position: fixed;
+  top: var(--bandeau-h); left: 0; right: 0;
+  height: var(--header-h);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  background: rgba(250, 250, 248, 0);
+  transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+.header.scrolled {
+  background: rgba(250, 250, 248, 0.97);
+  backdrop-filter: saturate(150%) blur(10px);
+  -webkit-backdrop-filter: saturate(150%) blur(10px);
+  box-shadow: 0 1px 0 rgba(26, 42, 54, 0.06), 0 8px 30px rgba(27, 79, 114, 0.05);
+}
+.header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+
+/* Logo */
+.logo { display: flex; flex-direction: column; line-height: 1; }
+.logo-main { font-family: var(--font-display); font-size: 22px; letter-spacing: -0.01em; }
+.logo-main .cat  { font-weight: 700; color: var(--catalan); }
+.logo-main .home { font-weight: 600; color: var(--soleil); }
+.logo-sub {
+  font-family: var(--font-corps);
+  font-weight: 400;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--horizon);
+  margin-top: 4px;
+}
+
+/* Navigation */
+.nav { display: flex; align-items: center; gap: 30px; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a {
+  font-family: var(--font-corps);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--horizon);
+  position: relative;
+  transition: color 0.2s ease;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 0; height: 2px;
+  background: var(--catalan);
+  transition: width 0.25s ease;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--catalan); }
+.nav-links a.active::after { width: 100%; }
+
+/* CTA header */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--catalan);
+  color: var(--blanc);
+  font-family: var(--font-corps);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 18px;
+  border-radius: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(27, 79, 114, 0.28);
+  background: #16405d;
+}
+
+/* Hamburger */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px; height: 40px;
+  z-index: 1002;
+}
+.burger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--encre);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Overlay mobile */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  background: var(--blanc);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.mobile-nav.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.mobile-nav a {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--encre);
+}
+.mobile-nav a.mob-cta {
+  background: var(--catalan);
+  color: var(--blanc);
+  font-size: 18px;
+  padding: 14px 28px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+/* ============================================================
+   2. HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  padding-block: clamp(48px, 8vw, 90px) clamp(64px, 9vw, 104px);
+  background: var(--blanc);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: var(--waves);
+  background-repeat: repeat;
+  background-size: 400px 180px;
+  opacity: 0.6; /* la tuile porte déjà opacity 0.05 → rendu ~0.03 */
+  pointer-events: none;
+}
+/* halo solaire discret en haut à droite */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -140px; right: -120px;
+  width: 460px; height: 460px;
+  background: radial-gradient(circle, rgba(232,170,58,0.14), rgba(232,170,58,0) 66%);
+  pointer-events: none;
+}
+.hero .wrap { position: relative; z-index: 1; max-width: 1080px; }
+.hero-eyebrow {
+  font-family: var(--font-corps);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--catalan);
+  margin-bottom: 22px;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--encre);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-size: clamp(2.4rem, 6.4vw, 4.3rem);
+  margin-bottom: 22px;
+}
+.hero h1 .accent { color: var(--catalan); }
+.hero-sub {
+  font-family: var(--font-corps);
+  font-weight: 400;
+  font-size: clamp(1.02rem, 1.6vw, 1.18rem);
+  color: var(--horizon);
+  max-width: 520px;
+  margin-bottom: 26px;
+}
+
+/* Bande de réassurance */
+.reassurance {
+  background: var(--sable);
+  border-left: 3px solid var(--soleil);
+  padding: 14px 20px;
+  border-radius: 0 6px 6px 0;
+  max-width: 500px;
+  margin-bottom: 30px;
+  font-family: var(--font-corps);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--encre);
+  line-height: 1.7;
+}
+
+/* CTAs hero */
+.hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 34px; }
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--catalan);
+  color: var(--blanc);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 14px 32px;
+  border-radius: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(27, 79, 114, 0.3);
+  background: #16405d;
+}
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1.5px solid var(--encre);
+  color: var(--encre);
+  font-family: var(--font-corps);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 12.5px 28px;
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.btn-outline:hover { background: var(--encre); color: var(--blanc); transform: translateY(-2px); }
+
+/* Badges hero */
+.hero-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+.badge {
+  background: var(--sable);
+  border-radius: 6px;
+  padding: 9px 16px;
+  font-family: var(--font-corps);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--encre);
+}
+
+/* ============================================================
+   3. POUR QUI
+   ============================================================ */
+.pourqui { background: var(--sable); position: relative; }
+.pourqui .head { max-width: 760px; margin-bottom: 44px; }
+.pourqui .head .section-title { margin-top: 4px; }
+
+.pourqui-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.cible {
+  background: var(--blanc);
+  border-radius: var(--radius);
+  padding: 34px 32px;
+  box-shadow: 0 10px 40px rgba(26, 42, 54, 0.05);
+}
+.cible.proprio  { border-top: 3px solid var(--catalan); }
+.cible.agence   { border-top: 3px solid var(--soleil); }
+.cible-label {
+  font-family: var(--font-corps);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cible.proprio .cible-label { color: var(--catalan); }
+.cible.agence  .cible-label { color: var(--soleil); }
+.cible h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--encre);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.cible p {
+  font-family: var(--font-corps);
+  color: var(--horizon);
+  font-size: 0.98rem;
+  margin-bottom: 20px;
+}
+.cible ul li {
+  font-family: var(--font-corps);
+  font-size: 0.95rem;
+  color: var(--encre);
+  padding: 7px 0 7px 26px;
+  position: relative;
+  border-top: 1px solid rgba(26, 42, 54, 0.06);
+}
+.cible ul li:first-child { border-top: none; }
+.cible ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+.cible.proprio ul li::before { color: var(--catalan); }
+.cible.agence  ul li::before { color: var(--soleil); }
+
+/* ============================================================
+   4. SERVICES
+   ============================================================ */
+.services { background: var(--blanc); }
+.services .head { max-width: 720px; margin-bottom: 44px; }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.service-card {
+  background: var(--sable);
+  border-radius: var(--radius);
+  border-top: 2px solid var(--catalan);
+  padding: 28px 26px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(27, 79, 114, 0.1);
+}
+.service-card .ico { font-size: 30px; margin-bottom: 14px; display: block; }
+.service-card h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--encre);
+  margin-bottom: 8px;
+}
+.service-card p {
+  font-family: var(--font-corps);
+  font-size: 0.95rem;
+  color: var(--horizon);
+}
+
+/* ============================================================
+   5. TRAVAILLER À DISTANCE
+   ============================================================ */
+.distance { background: var(--catalan); color: var(--blanc); position: relative; overflow: hidden; }
+.distance::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='180' viewBox='0 0 400 180'%3E%3Cg fill='none' stroke='%23FAFAF8' stroke-width='0.8' stroke-opacity='0.06'%3E%3Cpath d='M0 22 C 66 13 134 31 200 22 S 334 13 400 22'/%3E%3Cpath d='M0 52 C 70 61 130 43 200 52 S 330 61 400 52'/%3E%3Cpath d='M0 90 C 60 81 140 99 200 90 S 340 81 400 90'/%3E%3Cpath d='M0 118 C 66 127 134 109 200 118 S 334 127 400 118'/%3E%3Cpath d='M0 146 C 70 137 130 155 200 146 S 330 137 400 146'/%3E%3Cpath d='M0 170 C 66 161 134 179 200 170 S 334 161 400 170'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 400px 180px;
+  pointer-events: none;
+}
+.distance .wrap { position: relative; z-index: 1; }
+.distance .eyebrow { color: rgba(250, 250, 248, 0.6); }
+.distance h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--blanc);
+  line-height: 1.14;
+  font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+  max-width: 760px;
+  margin-bottom: 22px;
+  letter-spacing: -0.01em;
+}
+.distance .lede {
+  font-family: var(--font-corps);
+  color: rgba(250, 250, 248, 0.8);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 720px;
+  margin-bottom: 44px;
+}
+.engagements {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.engagement {
+  padding: 24px 22px;
+  background: rgba(250, 250, 248, 0.06);
+  border: 1px solid rgba(250, 250, 248, 0.12);
+  border-radius: var(--radius);
+}
+.engagement .ico { font-size: 28px; display: block; margin-bottom: 12px; }
+.engagement h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--blanc);
+  margin-bottom: 6px;
+}
+.engagement p {
+  font-family: var(--font-corps);
+  font-size: 0.94rem;
+  color: rgba(250, 250, 248, 0.7);
+}
+
+/* ============================================================
+   6. RÉALISATIONS
+   ============================================================ */
+.realisations { background: var(--sable); position: relative; }
+.realisations .head { max-width: 720px; margin-bottom: 44px; }
+.gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 240px 240px;
+  gap: 6px;
+}
+.gitem {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--blanc);
+  cursor: pointer;
+}
+.gitem:first-child { grid-row: 1 / 3; }
+/* Placeholders illustrés (dégradés méditerranéens) */
+.gitem .ph {
+  position: absolute; inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+  background:
+    linear-gradient(180deg, rgba(27,79,114,0) 40%, rgba(26,42,54,0.55) 100%),
+    linear-gradient(135deg, #cfe0ec 0%, #e7eef4 45%, #f3ede2 100%);
+}
+.gitem:nth-child(2) .ph { background: linear-gradient(180deg, rgba(27,79,114,0) 40%, rgba(26,42,54,0.55) 100%), linear-gradient(135deg, #f3e6cf 0%, #f7efe1 100%); }
+.gitem:nth-child(3) .ph { background: linear-gradient(180deg, rgba(27,79,114,0) 40%, rgba(26,42,54,0.55) 100%), linear-gradient(135deg, #d5e3ec 0%, #eef3f6 100%); }
+.gitem:nth-child(4) .ph { background: linear-gradient(180deg, rgba(27,79,114,0) 40%, rgba(26,42,54,0.55) 100%), linear-gradient(135deg, #cfe0ec 0%, #f3ede2 100%); }
+.gitem:nth-child(5) .ph { background: linear-gradient(180deg, rgba(27,79,114,0) 40%, rgba(26,42,54,0.55) 100%), linear-gradient(135deg, #f3e6cf 0%, #e7eef4 100%); }
+.gitem .ph span {
+  font-family: var(--font-corps);
+  font-weight: 600;
+  font-size: 0.86rem;
+  color: var(--blanc);
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 8px rgba(26,42,54,0.4);
+}
+.gitem .overlay {
+  position: absolute; inset: 0;
+  background: rgba(27, 79, 114, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+.gitem .overlay span {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--blanc);
+}
+.gitem:hover .overlay { opacity: 1; }
+
+/* ============================================================
+   7. TÉMOIGNAGES
+   ============================================================ */
+.temoignages { background: var(--blanc); }
+.temoignages .head { max-width: 720px; margin-bottom: 44px; }
+.temoignages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.temoignage {
+  background: var(--sable);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--catalan);
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+}
+.temoignage .quote {
+  font-family: var(--font-corps);
+  font-size: 0.98rem;
+  color: var(--encre);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+.temoignage .stars { color: var(--soleil); letter-spacing: 2px; margin-bottom: 8px; font-size: 0.9rem; }
+.temoignage .author {
+  font-family: var(--font-corps);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--catalan);
+}
+
+/* ============================================================
+   8. CONTACT
+   ============================================================ */
+.contact { background: var(--encre); color: var(--blanc); }
+.contact .eyebrow { color: var(--soleil); }
+.contact h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--blanc);
+  font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+  line-height: 1.1;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.contact .lede {
+  font-family: var(--font-corps);
+  color: var(--horizon);
+  font-size: 1.05rem;
+  margin-bottom: 44px;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Bloc gauche */
+.contact-info {
+  background: rgba(232, 170, 58, 0.06);
+  border: 1px solid rgba(232, 170, 58, 0.2);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+.contact-phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: var(--catalan);
+  color: var(--blanc);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 22px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.contact-phone:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(27,79,114,0.4); background: #16405d; }
+.contact-info .line {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-corps);
+  color: var(--horizon);
+  font-size: 0.98rem;
+  padding: 10px 0;
+  border-top: 1px solid rgba(250,250,248,0.08);
+}
+.contact-info .line:first-of-type { border-top: none; }
+.contact-info .line a { color: var(--blanc); }
+.contact-info .line a:hover { color: var(--soleil); }
+.contact-info .line .lbl { color: var(--soleil); font-weight: 600; }
+
+/* Bloc droit — formulaire */
+.contact-form { display: grid; gap: 18px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.field label {
+  display: block;
+  font-family: var(--font-corps);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--horizon);
+  margin-bottom: 6px;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  font-family: var(--font-corps);
+  font-size: 0.98rem;
+  color: var(--blanc);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(250, 250, 248, 0.2);
+  padding: 12px 0;
+  transition: border-color 0.25s ease;
+}
+.field textarea { resize: vertical; min-height: 90px; }
+.field input::placeholder,
+.field textarea::placeholder { color: rgba(250, 250, 248, 0.4); }
+.field input:focus,
+.field select:focus,
+.field textarea:focus { outline: none; border-bottom-color: var(--soleil); }
+.field select { appearance: none; cursor: pointer; }
+.field select option { color: var(--encre); background: var(--blanc); }
+/* flèche du select */
+.field.select-wrap { position: relative; }
+.field.select-wrap::after {
+  content: '▾';
+  position: absolute;
+  right: 2px; bottom: 12px;
+  color: var(--horizon);
+  pointer-events: none;
+}
+.btn-submit {
+  width: 100%;
+  background: var(--catalan);
+  color: var(--blanc);
+  font-family: var(--font-corps);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 15px;
+  border-radius: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(27,79,114,0.4); background: #16405d; }
+.form-note {
+  font-family: var(--font-corps);
+  font-size: 0.86rem;
+  color: var(--horizon);
+}
+.form-success {
+  display: none;
+  background: rgba(232,170,58,0.12);
+  border: 1px solid rgba(232,170,58,0.35);
+  border-radius: 6px;
+  padding: 14px 16px;
+  font-family: var(--font-corps);
+  font-size: 0.95rem;
+  color: var(--blanc);
+}
+.form-success.show { display: block; }
+
+/* ============================================================
+   9. FOOTER
+   ============================================================ */
+.footer {
+  background: var(--sable);
+  border-top: 2px solid var(--catalan);
+  padding-block: 48px 32px;
+}
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.footer .logo-main { font-size: 24px; }
+.footer .f-tag {
+  font-family: var(--font-corps);
+  color: var(--horizon);
+  font-size: 0.95rem;
+  margin-top: 6px;
+}
+.footer-contact { text-align: right; }
+.footer-contact a { font-family: var(--font-corps); }
+.footer-contact .f-phone { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--catalan); }
+.footer-contact .f-mail { display: block; color: var(--horizon); margin-top: 4px; }
+.footer-contact .f-mail:hover { color: var(--catalan); }
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(26, 42, 54, 0.1);
+}
+.footer-bottom p, .footer-bottom a {
+  font-family: var(--font-corps);
+  font-size: 0.82rem;
+  color: var(--horizon);
+}
+.footer-bottom .credit a { color: var(--catalan); font-weight: 600; }
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+}
+.reveal.revealed { opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 860px) {
+  .nav-links, .header .btn-cta { display: none; }
+  .burger { display: flex; }
+  .engagements { grid-template-columns: 1fr; }
+  .temoignages-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  :root { --header-h: 64px; }
+  .bandeau p { font-size: 11px; }
+  .pourqui-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  /* Galerie empilée mais toujours asymétrique verticalement */
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 180px);
+  }
+  .gitem:first-child { grid-row: 1 / 2; grid-column: 1 / 3; }
+  .footer-top { flex-direction: column; }
+  .footer-contact { text-align: left; }
+}
+
+@media (max-width: 480px) {
+  .wrap { padding-inline: 18px; }
+  .hero-cta { flex-direction: column; align-items: stretch; }
+  .btn-primary, .btn-outline { justify-content: center; }
+  .form-row { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 1fr; grid-template-rows: repeat(5, 190px); }
+  .gitem:first-child { grid-column: 1 / 2; }
+}
+
+/* Réduction de mouvement */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { transition-duration: 0.001ms; animation-duration: 0.001ms; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     0. BANDEAU
+     ============================================================ -->
+<div class="bandeau">
+  <p>🏠 Catalonia Home · Travaux &amp; Rénovation · Empuriabrava · Costa Brava · <a href="tel:+34641730709">+34 641 73 07 09</a></p>
+</div>
+
+<!-- ============================================================
+     1. HEADER
+     ============================================================ -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="#hero" class="logo" aria-label="Catalonia Home — accueil">
+      <span class="logo-main"><span class="cat">Catalonia</span> <span class="home">Home</span></span>
+      <span class="logo-sub">Travaux &amp; Rénovation</span>
+    </a>
+
+    <nav class="nav" aria-label="Navigation principale">
+      <div class="nav-links">
+        <a href="#services">Nos travaux</a>
+        <a href="#pourqui">Pour qui</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="tel:+34641730709" class="btn-cta">📞 Devis gratuit</a>
+    </nav>
+
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Overlay mobile -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#services">Nos travaux</a>
+  <a href="#pourqui">Pour qui</a>
+  <a href="#realisations">Réalisations</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:+34641730709" class="mob-cta">📞 +34 641 73 07 09</a>
+</div>
+
+<!-- ============================================================
+     2. HERO
+     ============================================================ -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <p class="hero-eyebrow reveal">Travaux &amp; Rénovation · Empuriabrava · Costa Brava</p>
+    <h1 class="reveal">
+      Votre villa en Espagne,<br />
+      <span class="accent">entre de bonnes mains.</span>
+    </h1>
+    <p class="hero-sub reveal">
+      Catalonia Home réalise vos travaux de rénovation à Empuriabrava et sur la Costa Brava
+      pendant votre absence. Suivi photos, compte-rendu régulier, résultat livré à votre arrivée.
+    </p>
+
+    <div class="reassurance reveal">
+      ✓ Sur place à Empuriabrava&nbsp; ·&nbsp; ✓ Suivi à distance inclus&nbsp; ·&nbsp; ✓ Clients belges &amp; français
+    </div>
+
+    <div class="hero-cta reveal">
+      <a href="tel:+34641730709" class="btn-primary">📞 +34 641 73 07 09</a>
+      <a href="mailto:info.cataloniahome@gmail.com" class="btn-outline">Envoyer un email</a>
+    </div>
+
+    <div class="hero-badges reveal">
+      <span class="badge">🏠 Résidences secondaires</span>
+      <span class="badge">🇧🇪 Clients belges</span>
+      <span class="badge">📍 Empuriabrava</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3. POUR QUI
+     ============================================================ -->
+<section class="pourqui section-pad bg-waves" id="pourqui">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow reveal">Pour qui ?</p>
+      <h2 class="section-title reveal">Propriétaires absents et agences immobilières.</h2>
+    </div>
+
+    <div class="pourqui-grid">
+      <!-- Colonne 1 -->
+      <article class="cible proprio reveal">
+        <p class="cible-label">🇧🇪 Propriétaires</p>
+        <h3>Vous vivez en Belgique.</h3>
+        <p>
+          Votre villa à Empuriabrava mérite d'être entretenue et rénovée, même pendant
+          votre absence. Catalonia Home gère vos travaux sur place et vous tient informé
+          à chaque étape — photos, compte-rendus, WhatsApp.
+        </p>
+        <ul>
+          <li>Travaux réalisés pendant votre absence</li>
+          <li>Photos et compte-rendus réguliers</li>
+          <li>Remise des clés à votre arrivée</li>
+          <li>Communication en français</li>
+        </ul>
+      </article>
+
+      <!-- Colonne 2 -->
+      <article class="cible agence reveal">
+        <p class="cible-label">🏢 Agences immobilières</p>
+        <h3>Vous gérez des biens sur la Costa Brava.</h3>
+        <p>
+          Catalonia Home est votre prestataire de confiance sur place pour la remise en état
+          entre locataires, les travaux d'entretien et les rénovations. Intervention rapide,
+          facturation claire, partenariat durable.
+        </p>
+        <ul>
+          <li>Remise en état entre locataires</li>
+          <li>Travaux d'entretien réguliers</li>
+          <li>Facturation professionnelle</li>
+          <li>Disponible rapidement sur Empuriabrava</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. SERVICES
+     ============================================================ -->
+<section class="services section-pad" id="services">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow reveal">Nos travaux</p>
+      <h2 class="section-title reveal">Ce que nous réalisons pour vous.</h2>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card reveal">
+        <span class="ico">🏠</span>
+        <h3>Rénovation intérieure</h3>
+        <p>Cuisine, salle de bain, séjour, chambres. Transformation complète ou partielle de votre villa.</p>
+      </article>
+      <article class="service-card reveal">
+        <span class="ico">🎨</span>
+        <h3>Peinture &amp; finitions</h3>
+        <p>Intérieure et extérieure. Résultat soigné, matériaux adaptés au climat méditerranéen.</p>
+      </article>
+      <article class="service-card reveal">
+        <span class="ico">🔲</span>
+        <h3>Carrelage &amp; sols</h3>
+        <p>Pose de carrelage, parquet, revêtements. Style méditerranéen ou contemporain selon vos goûts.</p>
+      </article>
+      <article class="service-card reveal">
+        <span class="ico">🔧</span>
+        <h3>Petits travaux</h3>
+        <p>Réparations, remplacement, maintenance. Intervention rapide pour garder votre bien en parfait état.</p>
+      </article>
+      <article class="service-card reveal">
+        <span class="ico">🏡</span>
+        <h3>Remise en état locative</h3>
+        <p>Entre deux locataires ou après saison. Votre bien prêt pour la prochaine location ou arrivée.</p>
+      </article>
+      <article class="service-card reveal">
+        <span class="ico">🤝</span>
+        <h3>Coordination à distance</h3>
+        <p>Suivi photos, WhatsApp, compte-rendus. Vous restez informé depuis la Belgique ou la France.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. TRAVAILLER À DISTANCE
+     ============================================================ -->
+<section class="distance section-pad" id="distance">
+  <div class="wrap">
+    <p class="eyebrow reveal">Suivi à distance</p>
+    <h2 class="reveal">Vous êtes en Belgique. Vos travaux avancent en Espagne.</h2>
+    <p class="lede reveal">
+      La distance ne doit pas être un frein. Catalonia Home vous envoie des photos régulières,
+      vous tient informé par WhatsApp à chaque étape clé, et vous remet les clés d'un chantier
+      terminé à votre arrivée. Pas de surprise, pas de stress — juste un résultat.
+    </p>
+
+    <div class="engagements">
+      <article class="engagement reveal">
+        <span class="ico">📸</span>
+        <h4>Photos régulières</h4>
+        <p>Avancement documenté étape par étape.</p>
+      </article>
+      <article class="engagement reveal">
+        <span class="ico">💬</span>
+        <h4>WhatsApp dédié</h4>
+        <p>Contact direct avec Simon, en français.</p>
+      </article>
+      <article class="engagement reveal">
+        <span class="ico">🔑</span>
+        <h4>Livraison clé en main</h4>
+        <p>Tout est terminé à votre arrivée.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. RÉALISATIONS
+     ============================================================ -->
+<section class="realisations section-pad bg-waves" id="realisations">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow reveal">Réalisations</p>
+      <h2 class="section-title reveal">Des villas rénovées sur la Costa Brava.</h2>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gitem">
+        <div class="ph"><span>Villa Empuriabrava — rénovation complète</span></div>
+        <div class="overlay"><span>Villa Empuriabrava — rénovation complète</span></div>
+      </div>
+      <div class="gitem">
+        <div class="ph"><span>Cuisine — remise à neuf</span></div>
+        <div class="overlay"><span>Cuisine — remise à neuf</span></div>
+      </div>
+      <div class="gitem">
+        <div class="ph"><span>Salle de bain — rénovation</span></div>
+        <div class="overlay"><span>Salle de bain — rénovation</span></div>
+      </div>
+      <div class="gitem">
+        <div class="ph"><span>Peinture extérieure — villa côtière</span></div>
+        <div class="overlay"><span>Peinture extérieure — villa côtière</span></div>
+      </div>
+      <div class="gitem">
+        <div class="ph"><span>Remise en état locative</span></div>
+        <div class="overlay"><span>Remise en état locative</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. TÉMOIGNAGES
+     ============================================================ -->
+<section class="temoignages section-pad" id="temoignages">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow reveal">Témoignages</p>
+      <h2 class="section-title reveal">Ils nous font confiance depuis la Belgique.</h2>
+    </div>
+
+    <div class="temoignages-grid">
+      <article class="temoignage reveal">
+        <p class="quote">
+          « Simon a géré la rénovation complète de notre cuisine pendant qu'on était en Belgique.
+          Photos régulières, aucun problème. On est arrivés pour trouver le chantier terminé et
+          impeccable. Parfait. »
+        </p>
+        <p class="stars">★★★★★</p>
+        <p class="author">Famille Dubois, Bruxelles · Villa Empuriabrava</p>
+      </article>
+
+      <article class="temoignage reveal">
+        <p class="quote">
+          « Notre agence travaille avec Catalonia Home pour les remises en état entre locataires.
+          Réactif, fiable, prix honnête. Un prestataire comme on en cherchait depuis longtemps
+          sur Empuriabrava. »
+        </p>
+        <p class="stars">★★★★★</p>
+        <p class="author">Agence immobilière · Empuriabrava</p>
+      </article>
+
+      <article class="temoignage reveal">
+        <p class="quote">
+          « Salle de bain entièrement refaite, carrelage et peinture. Simon communique parfaitement
+          en français, tient ses délais et le résultat est exactement ce qu'on voulait.
+          On recommande. »
+        </p>
+        <p class="stars">★★★★★</p>
+        <p class="author">Marc &amp; Isabelle V., Liège · Costa Brava</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. CONTACT
+     ============================================================ -->
+<section class="contact section-pad" id="contact">
+  <div class="wrap">
+    <p class="eyebrow reveal">Contact &amp; devis</p>
+    <h2 class="reveal">Parlons de votre projet.</h2>
+    <p class="lede reveal">Devis gratuit · Empuriabrava &amp; Costa Brava · Réponse rapide</p>
+
+    <div class="contact-grid">
+      <!-- Bloc gauche -->
+      <div class="contact-info reveal">
+        <a href="tel:+34641730709" class="contact-phone">📞 +34 641 73 07 09</a>
+        <div class="line">
+          <span class="lbl">Email</span>
+          <a href="mailto:info.cataloniahome@gmail.com">info.cataloniahome@gmail.com</a>
+        </div>
+        <div class="line">
+          <span>💬 WhatsApp disponible · Réponse en français</span>
+        </div>
+        <div class="line">
+          <span>📍 Empuriabrava · Costa Brava · Espagne</span>
+        </div>
+      </div>
+
+      <!-- Bloc droit — formulaire -->
+      <form class="contact-form reveal" action="#" method="post" id="devisForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="nom">Prénom &amp; Nom</label>
+            <input type="text" id="nom" name="nom" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="tel">Téléphone</label>
+            <input type="tel" id="tel" name="tel" autocomplete="tel" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required />
+        </div>
+
+        <div class="form-row">
+          <div class="field select-wrap">
+            <label for="profil">Vous êtes</label>
+            <select id="profil" name="profil">
+              <option value="proprietaire">Propriétaire d'une résidence secondaire</option>
+              <option value="agence">Agence immobilière</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+          <div class="field select-wrap">
+            <label for="travaux">Type de travaux</label>
+            <select id="travaux" name="travaux">
+              <option value="renovation">Rénovation complète</option>
+              <option value="cuisine-sdb">Cuisine &amp; salle de bain</option>
+              <option value="peinture">Peinture &amp; finitions</option>
+              <option value="carrelage">Carrelage &amp; sols</option>
+              <option value="petits">Petits travaux</option>
+              <option value="locative">Remise en état locative</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="lieu">Localisation du bien</label>
+          <input type="text" id="lieu" name="lieu" placeholder="Empuriabrava, Roses, Castelló d'Empúries..." />
+        </div>
+
+        <div class="field">
+          <label for="message">Description du projet</label>
+          <textarea id="message" name="message" placeholder="Décrivez votre projet — type de bien, surface, travaux souhaités..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Envoyer ma demande</button>
+        <p class="form-note">Réponse rapide de Simon — en français, par email ou WhatsApp.</p>
+        <div class="form-success" id="formSuccess">
+          ✓ Merci ! Votre demande est bien notée. Simon vous recontacte rapidement.
+          <br />Pour une réponse immédiate : <a href="tel:+34641730709" style="color:var(--soleil);">+34 641 73 07 09</a>.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9. FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <span class="logo-main"><span class="cat" style="font-family:var(--font-display);font-weight:700;color:var(--catalan);">Catalonia</span> <span class="home" style="font-family:var(--font-display);font-weight:600;color:var(--soleil);">Home</span></span>
+        <p class="f-tag">Travaux &amp; Rénovation · Empuriabrava · Costa Brava</p>
+      </div>
+      <div class="footer-contact">
+        <a href="tel:+34641730709" class="f-phone">+34 641 73 07 09</a>
+        <a href="mailto:info.cataloniahome@gmail.com" class="f-mail">info.cataloniahome@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Catalonia Home — Tous droits réservés</p>
+      <p class="credit">Site réalisé par <a href="https://paymentflow.fr" target="_blank" rel="noopener">Payment Flow</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT — mode strict, vanilla, zéro dépendance
+     ============================================================ -->
+<script>
+'use strict';
+
+(function () {
+  /* ---- Header : transparent → opaque au scroll > 70px ---- */
+  var header = document.getElementById('header');
+  function onScroll() {
+    if (window.scrollY > 70) { header.classList.add('scrolled'); }
+    else { header.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---- Menu mobile (hamburger + overlay fullscreen) ---- */
+  var burger = document.getElementById('burger');
+  var mobileNav = document.getElementById('mobileNav');
+  function closeMenu() {
+    burger.classList.remove('open');
+    mobileNav.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.removeProperty('overflow');
+  }
+  burger.addEventListener('click', function () {
+    var isOpen = mobileNav.classList.toggle('open');
+    burger.classList.toggle('open', isOpen);
+    burger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mobileNav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeMenu);
+  });
+  window.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closeMenu(); }
+  });
+
+  /* ---- Scroll reveal via IntersectionObserver + stagger ---- */
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal');
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('revealed'); });
+  } else {
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          // stagger : décalage selon la position parmi les frères « reveal »
+          var siblings = Array.prototype.filter.call(
+            el.parentNode.children,
+            function (c) { return c.classList.contains('reveal'); }
+          );
+          var idx = siblings.indexOf(el);
+          el.style.transitionDelay = (idx > 0 ? idx * 0.08 : 0) + 's';
+          el.classList.add('revealed');
+          obs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---- Scrollspy : lien de nav actif ---- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var spySections = navLinks
+    .map(function (l) {
+      var id = l.getAttribute('href');
+      return id && id.charAt(0) === '#' ? document.querySelector(id) : null;
+    })
+    .filter(Boolean);
+
+  if ('IntersectionObserver' in window && spySections.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = '#' + entry.target.id;
+          navLinks.forEach(function (l) {
+            l.classList.toggle('active', l.getAttribute('href') === id);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    spySections.forEach(function (s) { spy.observe(s); });
+  }
+
+  /* ---- Formulaire : feedback local (action="#" à remplacer par
+          Web3Forms / Formspree côté client) ---- */
+  var form = document.getElementById('devisForm');
+  var success = document.getElementById('formSuccess');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    success.classList.add('show');
+    form.querySelector('.btn-submit').textContent = 'Demande envoyée ✓';
+    success.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+  });
+})();
+</script>
+
+</body>
+</html>
