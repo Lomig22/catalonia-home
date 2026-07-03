@@ -278,25 +278,31 @@ section[id] { scroll-margin-top: calc(var(--bandeau-h) + var(--header-h) + 12px)
   background: var(--blanc);
   overflow: hidden;
 }
+/* Visuel de fond : villa méditerranéenne (SVG inline, cover ancré bas-droite).
+   → Remplaçable par une vraie photo : masquer .hero-visual et poser
+     background-image sur .hero (voir note client).                        */
+.hero-visual {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-visual svg { width: 100%; height: 100%; display: block; }
+/* Voile de lisibilité : blanc plein à gauche (texte) → révèle la villa à
+   droite, + léger fondu bas vers la section.                              */
 .hero::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: var(--waves);
-  background-repeat: repeat;
-  background-size: 400px 180px;
-  opacity: 0.6; /* la tuile porte déjà opacity 0.05 → rendu ~0.03 */
+  z-index: 1;
   pointer-events: none;
+  background:
+    linear-gradient(97deg,
+      var(--blanc) 0%, var(--blanc) 30%,
+      rgba(250, 250, 248, 0.92) 42%, rgba(250, 250, 248, 0.55) 55%,
+      rgba(250, 250, 248, 0.12) 70%, rgba(250, 250, 248, 0) 82%),
+    linear-gradient(0deg, var(--blanc) 0%, rgba(250, 250, 248, 0) 26%);
 }
-/* halo solaire discret en haut à droite */
-.hero::after {
-  content: '';
-  position: absolute;
-  top: -140px; right: -120px;
-  width: 460px; height: 460px;
-  background: radial-gradient(circle, rgba(232,170,58,0.14), rgba(232,170,58,0) 66%);
-  pointer-events: none;
-}
-.hero .wrap { position: relative; z-index: 1; max-width: 1080px; }
+.hero .wrap { position: relative; z-index: 2; max-width: 1080px; }
 .hero-eyebrow {
   font-family: var(--font-corps);
   font-weight: 600;
@@ -850,6 +856,13 @@ section[id] { scroll-margin-top: calc(var(--bandeau-h) + var(--header-h) + 12px)
 @media (max-width: 768px) {
   :root { --header-h: 64px; }
   .bandeau p { font-size: 11px; }
+  /* Hero mobile : villa révélée en partie basse, texte sur blanc en haut */
+  .hero { padding-bottom: clamp(170px, 42vw, 250px); }
+  .hero::before {
+    background: linear-gradient(180deg,
+      var(--blanc) 0%, var(--blanc) 46%,
+      rgba(250, 250, 248, 0.72) 62%, rgba(250, 250, 248, 0.3) 82%, rgba(250, 250, 248, 0.05) 100%);
+  }
   .pourqui-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
   /* Galerie empilée mais toujours asymétrique verticalement */
@@ -928,6 +941,112 @@ section[id] { scroll-margin-top: calc(var(--bandeau-h) + var(--header-h) + 12px)
      2. HERO
      ============================================================ -->
 <section class="hero" id="hero">
+  <!-- Visuel de fond : villa méditerranéenne (illustration SVG, palette de marque).
+       À remplacer par une vraie photo de réalisation avant mise en ligne. -->
+  <div class="hero-visual" aria-hidden="true">
+    <svg viewBox="0 0 1440 820" preserveAspectRatio="xMaxYMax slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="chSky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#a9c8de" />
+          <stop offset="0.5" stop-color="#cadeeb" />
+          <stop offset="1" stop-color="#edf3f7" />
+        </linearGradient>
+        <radialGradient id="chSun" cx="0.82" cy="0.18" r="0.55">
+          <stop offset="0" stop-color="#E8AA3A" stop-opacity="0.5" />
+          <stop offset="0.4" stop-color="#E8AA3A" stop-opacity="0.16" />
+          <stop offset="1" stop-color="#E8AA3A" stop-opacity="0" />
+        </radialGradient>
+        <linearGradient id="chSea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#6f97b4" />
+          <stop offset="1" stop-color="#8bacc5" />
+        </linearGradient>
+        <linearGradient id="chPool" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#2e6087" />
+          <stop offset="1" stop-color="#1B4F72" />
+        </linearGradient>
+      </defs>
+
+      <!-- Ciel & soleil de la Costa Brava -->
+      <rect x="0" y="0" width="1440" height="820" fill="url(#chSky)" />
+      <rect x="0" y="0" width="1440" height="520" fill="url(#chSun)" />
+      <circle cx="1180" cy="138" r="46" fill="#f5d488" />
+
+      <!-- Mer / canal d'Empuriabrava -->
+      <rect x="0" y="436" width="1440" height="46" fill="url(#chSea)" />
+      <g stroke="#ffffff" stroke-opacity="0.22" stroke-width="2" fill="none">
+        <line x1="120" y1="452" x2="360" y2="452" />
+        <line x1="480" y1="462" x2="760" y2="462" />
+        <line x1="1000" y1="456" x2="1240" y2="456" />
+      </g>
+
+      <!-- Terrasse -->
+      <rect x="0" y="478" width="1440" height="342" fill="#F0EBE1" />
+
+      <!-- Cyprès arrière -->
+      <ellipse cx="742" cy="452" rx="15" ry="40" fill="#1B4F72" opacity="0.75" />
+
+      <!-- Bâtiment B (haut, arrière) -->
+      <rect x="766" y="206" width="132" height="12" fill="#EFE7D9" />
+      <rect x="772" y="214" width="120" height="264" fill="#FAFAF8" />
+      <rect x="880" y="214" width="12" height="264" fill="#E7DFD1" />
+      <rect x="812" y="274" width="40" height="150" rx="4" fill="#1B4F72" opacity="0.9" />
+      <rect x="812" y="274" width="40" height="150" rx="4" fill="none" stroke="#E8AA3A" stroke-width="3" />
+
+      <!-- Bâtiment A (villa principale) -->
+      <rect x="846" y="250" width="298" height="14" fill="#EFE7D9" />
+      <rect x="852" y="258" width="286" height="220" fill="#FAFAF8" />
+      <rect x="1126" y="258" width="12" height="220" fill="#E7DFD1" />
+      <rect x="886" y="306" width="46" height="64" rx="4" fill="#1B4F72" />
+      <rect x="886" y="306" width="46" height="64" rx="4" fill="none" stroke="#E8AA3A" stroke-width="3" />
+      <rect x="972" y="306" width="46" height="64" rx="4" fill="#1B4F72" />
+      <rect x="972" y="306" width="46" height="64" rx="4" fill="none" stroke="#E8AA3A" stroke-width="3" />
+      <rect x="1058" y="306" width="46" height="64" rx="4" fill="#1B4F72" />
+      <rect x="1058" y="306" width="46" height="64" rx="4" fill="none" stroke="#E8AA3A" stroke-width="3" />
+      <!-- Porte en arche -->
+      <path d="M946 478 L946 432 Q946 396 976 396 Q1006 396 1006 432 L1006 478 Z" fill="#1B4F72" />
+      <path d="M946 478 L946 432 Q946 396 976 396 Q1006 396 1006 432 L1006 478 Z" fill="none" stroke="#E8AA3A" stroke-width="3" />
+
+      <!-- Bâtiment C (bas, droite) -->
+      <rect x="1132" y="328" width="226" height="12" fill="#EFE7D9" />
+      <rect x="1138" y="336" width="214" height="142" fill="#FAFAF8" />
+      <rect x="1340" y="336" width="12" height="142" fill="#E7DFD1" />
+      <rect x="1172" y="384" width="44" height="58" rx="4" fill="#1B4F72" />
+      <rect x="1172" y="384" width="44" height="58" rx="4" fill="none" stroke="#E8AA3A" stroke-width="3" />
+      <rect x="1256" y="384" width="44" height="58" rx="4" fill="#1B4F72" />
+      <rect x="1256" y="384" width="44" height="58" rx="4" fill="none" stroke="#E8AA3A" stroke-width="3" />
+
+      <!-- Palmier -->
+      <path d="M1262 562 C1252 486 1240 404 1244 336" fill="none" stroke="#1B4F72" stroke-width="12" stroke-linecap="round" opacity="0.9" />
+      <g fill="none" stroke="#1B4F72" stroke-width="7" stroke-linecap="round" opacity="0.82">
+        <path d="M1244 338 C1200 320 1150 322 1112 348" />
+        <path d="M1244 338 C1210 300 1160 280 1120 276" />
+        <path d="M1244 338 C1244 296 1256 250 1290 232" />
+        <path d="M1244 338 C1288 300 1338 300 1372 326" />
+        <path d="M1244 338 C1290 322 1340 340 1372 372" />
+        <path d="M1244 338 C1210 356 1176 384 1160 420" />
+      </g>
+      <g fill="#1B4F72">
+        <circle cx="1244" cy="346" r="6" />
+        <circle cx="1258" cy="352" r="5" />
+        <circle cx="1230" cy="352" r="5" />
+      </g>
+
+      <!-- Végétation d'avant-plan -->
+      <ellipse cx="930" cy="484" rx="26" ry="17" fill="#1B4F72" opacity="0.8" />
+      <ellipse cx="1058" cy="484" rx="22" ry="15" fill="#1B4F72" opacity="0.72" />
+      <ellipse cx="838" cy="592" rx="16" ry="34" fill="#1B4F72" opacity="0.8" />
+
+      <!-- Piscine -->
+      <rect x="852" y="604" width="372" height="132" rx="16" fill="#EFE7D9" />
+      <rect x="864" y="614" width="348" height="112" rx="12" fill="url(#chPool)" />
+      <rect x="880" y="626" width="316" height="30" rx="8" fill="#ffffff" opacity="0.10" />
+      <g fill="none" stroke="#ffffff" stroke-opacity="0.16" stroke-width="3">
+        <path d="M886 690 C940 680 1000 700 1060 690 S1160 700 1196 690" />
+        <path d="M886 706 C940 698 1000 714 1060 706 S1160 714 1196 706" />
+      </g>
+    </svg>
+  </div>
+
   <div class="wrap">
     <p class="hero-eyebrow reveal">Travaux &amp; Rénovation · Empuriabrava · Costa Brava</p>
     <h1 class="reveal">
